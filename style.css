@@ -4,7 +4,7 @@ body, html {
     height: 100%;
 }
 #map {
-    height: 400px; /* ou la hauteur souhaitée */
+    height: 100%; /* ou la hauteur souhaitée */
     width: 100%;
   }
   
