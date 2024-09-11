@@ -1,0 +1,12 @@
+{
+  "name": "pwaopenstreetmap",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "live-server --port=8080 --host=localhost --no-browser"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
