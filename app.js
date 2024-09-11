@@ -26,6 +26,7 @@ function updatePosition(position) {
         console.log("Mise à jour de la position sur la carte existante");
         map.setView([lat, lon], 13);
         marker.setLatLng([lat, lon]);
+        
     }
 }
 
