@@ -24,11 +24,45 @@ function updatePosition(position) {
         initMap(lat, lon);
     } else {
         console.log("Mise à jour de la position sur la carte existante");
-        map.setView([lat, lon], 13);
+        map.setView([lat, lon], 20);
         marker.setLatLng([lat, lon]);
-        
+
     }
 }
+
+document.getElementById('clearLog').addEventListener('click', function() {
+    document.getElementById('logArea').innerHTML = '';
+});
+
+
+(function() {
+    const logArea = document.getElementById('logArea');
+    const originalLog = console.log;
+    console.log = function() {
+        // Appel à la fonction originale
+        originalLog.apply(console, arguments);
+        
+        // Création du message pour l'affichage
+        const message = Array.from(arguments).map(arg => 
+            typeof arg === 'object' ? JSON.stringify(arg) : arg
+        ).join(' ');
+        
+        // Création et ajout de l'élément de log
+        const logMessage = document.createElement('div');
+        logMessage.textContent = message;
+        logArea.appendChild(logMessage);
+        
+        // Scroll vers le bas
+        logArea.scrollTop = logArea.scrollHeight;
+        
+        // Limiter le nombre de messages (optionnel)
+        while (logArea.children.length > 50) {
+            logArea.removeChild(logArea.firstChild);
+        }
+    };
+})();
+
+
 
 function handleError(error) {
     console.error("Erreur de géolocalisation:", error.message);

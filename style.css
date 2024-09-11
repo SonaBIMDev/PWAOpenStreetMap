@@ -2,9 +2,47 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
 #map {
-    height: 100%; /* ou la hauteur souhaitée */
+    flex-grow: 1;
     width: 100%;
-  }
+}
   
+
+#logArea {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    z-index: 1000;
+    box-sizing: border-box; /* Inclut le padding dans la hauteur totale */
+}
+
+
+#clearLog {
+    position: fixed;
+    bottom: 160px; /* Juste au-dessus de la zone de log */
+    right: 10px;
+    z-index: 1001; /* Assurez-vous qu'il est au-dessus de la zone de log */
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#clearLog:hover {
+    background-color: #0056b3;
+}
